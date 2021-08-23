@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<magic>
+  <Style name="default">
+    <Nodes/>
+    <Classes>
+      <plot-view border="2" background-color="black" border-color="silver" display="contents"/>
+      <nomargin margin="0" padding="0" border="0"/>
+      <group margin="5" padding="5" border="2" flex-direction="column"/>
+      <transparent background-color="transparentblack"/>
+    </Classes>
+    <Types>
+      <Slider border="0" slider-textbox="textbox-below"/>
+      <ToggleButton border="0" max-height="50" caption-size="0" text="Active"/>
+      <TextButton border="0" max-height="50" caption-size="0"/>
+      <ComboBox border="0" max-height="50" caption-size="0"/>
+      <Plot border="0" margin="0" padding="0" background-color="00000000"
+            radius="0"/>
+      <XYDragComponent border="0" margin="0" padding="0" background-color="00000000"
+                       radius="0"/>
+    </Types>
+  </Style>
+  <View id="root" resizable="1" resize-corner="1" flex-direction="column">
+    <View max-height="100">
+      <Label text="HarmonyV" font-size="30" justification="centred" editable="0"
+             label-background="FF252525" min-width="350"/>
+      <RealtimeLabel/>
+    </View>
+    <View flex-direction="column">
+      <View class="parameters nomargin" caption="Voices" caption-placement="centred-top"
+            caption-size="30" background-color="FF252525" padding="5" border=""
+            radius="">
+        <View flex-direction="column" caption="Voice 1">
+          <View>
+            <Slider caption="Gain" parameter="v1gain" slider-type="linear-vertical"
+                    slider-track="FFBA19B6" rotary-fill=""/>
+            <Meter/>
+          </View>
+          <Slider caption="Pan" parameter="v1pan" slider-type="linear-horizontal"
+                  max-height="90" rotary-fill="" slider-background="FF34EE42" slider-track="FF34EE42"/>
+          <View flex-direction="column" flex-align-content="stretch" flex-align-items="center"
+                flex-justify-content="center" min-height="" max-height="100">
+            <ToggleButton parameter="v1solo" caption-placement="centred-left" max-height="50"
+                          text="   Solo"/>
+            <ToggleButton parameter="v1mute" caption-placement="centred-top" max-height="50"
+                          text="Mute"/>
+          </View>
+        </View>
+        <View caption="Voice 2" flex-direction="column">
+          <View>
+            <Slider caption="Gain" parameter="v2gain" slider-type="linear-vertical"
+                    slider-track="FFBA19B6"/>
+            <Meter/>
+          </View>
+          <Slider caption="Pan" parameter="v2pan" slider-type="linear-horizontal"
+                  max-height="90" rotary-fill="" slider-background="FF34EE42" slider-track="FF34EE42"/>
+          <View max-height="100" flex-direction="column">
+            <ToggleButton parameter="v2solo" caption-placement="centred-left" max-height="50"
+                          text="Solo"/>
+            <ToggleButton parameter="v2mute" caption-placement="centred-left" max-height="50"
+                          text="Mute"/>
+          </View>
+        </View>
+        <View caption="Voice 3" flex-direction="column">
+          <View>
+            <Slider caption="Gain" parameter="v3gain" slider-type="linear-vertical"
+                    slider-track="FFBA19B6"/>
+            <Meter/>
+          </View>
+          <Slider caption="Pan" parameter="v3pan" slider-type="linear-horizontal"
+                  max-height="90" rotary-fill="" slider-background="FF34EE42" slider-track="FF34EE42"/>
+          <View flex-direction="column" max-height="100">
+            <ToggleButton parameter="v3solo" caption-placement="centred-left" max-height="50"
+                          text="Solo"/>
+            <ToggleButton parameter="v3mute" caption-placement="centred-left" max-height="50"
+                          text="Mute"/>
+          </View>
+        </View>
+        <View caption="Voice 4" flex-direction="column" pos-x="74.8744%" pos-y="-7.31707%"
+              pos-width="25.1256%" pos-height="100%">
+          <View>
+            <Slider caption="Gain" parameter="v4gain" slider-type="linear-vertical"
+                    slider-track="FFBA19B6"/>
+            <Meter/>
+          </View>
+          <Slider caption="Pan" parameter="v4pan" slider-type="linear-horizontal"
+                  max-height="90" rotary-fill="" slider-background="FF34EE42" slider-track="FF34EE42"/>
+          <View flex-direction="column" max-height="100">
+            <ToggleButton parameter="v4solo" caption-placement="centred-left" max-height="50"
+                          text="Solo"/>
+            <ToggleButton parameter="v4mute" caption-placement="centred-left" max-height="50"
+                          text="Mute"/>
+          </View>
+        </View>
+      </View>
+      <View caption="Input" caption-placement="centred-left" max-height="200"
+            background-color="FF252525" padding="5">
+        <View display="flexbox" flex-align-self="stretch" flex-align-items=""
+              flex-justify-content="" flex-align-content="" flex-direction="column"
+              max-width="95">
+          <ToggleButton parameter="inputsolo" lookAndFeel="FoleysFinest" caption-placement="centred-left"
+                        flex-align-self="stretch" text="Solo"/>
+          <ToggleButton parameter="inputmute" caption-placement="centred-left" flex-align-self="stretch"
+                        flex-grow="1.0" text="Mute"/>
+        </View>
+        <View flex-direction="row">
+          <Slider caption="In Gain" parameter="inputgain" slider-type="linear-vertical"
+                  rotary-fill="" slider-track="FF53FFFF"/>
+          <Meter caption="In" bar-background-color="" bar-fill-color="FF009E77"
+                 tickmark-color="FFFFFFFF"/>
+        </View>
+        <Slider caption="Pan" parameter="inputpan" max-width="110" rotary-fill="FF34EE42"
+                slider-background="FF34EE42"/>
+        <View>
+          <Slider caption="Out Gain" parameter="inoutputgain" slider-type="linear-vertical"
+                  pos-x="-4.10678%" pos-y="-4.375%" pos-width="19.9179%" pos-height="100%"
+                  slider-track="FFBA19B6"/>
+          <Meter caption="Out" bar-fill-color="FF009E77" tickmark-color="FFFFFFFF"/>
+        </View>
+      </View>
+    </View>
+  </View>
+  <Styles>
+    <Style name="default">
+      <Nodes/>
+      <Classes>
+        <plot-view border="2" background-color="black" border-color="silver" display="contents"/>
+        <nomargin margin="0" padding="0" border="0"/>
+        <group margin="5" padding="5" border="2" flex-direction="column"/>
+        <transparent background-color="transparentblack"/>
+      </Classes>
+      <Types>
+        <Slider border="0" slider-textbox="textbox-below"/>
+        <ToggleButton border="0" max-height="50" caption-size="0" text="Active"/>
+        <TextButton border="0" max-height="50" caption-size="0"/>
+        <ComboBox border="0" max-height="50" caption-size="0"/>
+        <Plot border="0" margin="0" padding="0" background-color="00000000"
+              radius="0"/>
+        <XYDragComponent border="0" margin="0" padding="0" background-color="00000000"
+                         radius="0"/>
+      </Types>
+      <Palettes>
+        <default/>
+      </Palettes>
+    </Style>
+  </Styles>
+</magic>
