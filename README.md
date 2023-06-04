@@ -1,10 +1,7 @@
 # HarmonyV
-
-Rebuild monophonic harmonizer idea with 
-- Much improved git setup
-  - Juce submodule
-  - Documentation
-- Thought-out architecture for the C++
+ 
+- Think out architecture for the C++
+  - Properly namespace things (and don't abuse std)
 - Use branches/inceremental improvements more effectively
 - Get different algorithms working better
 
