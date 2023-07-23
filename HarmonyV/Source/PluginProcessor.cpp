@@ -9,6 +9,8 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+#include "Log.h"
+
 //==============================================================================
 HarmonyVAudioProcessor::HarmonyVAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -66,8 +68,7 @@ void HarmonyVAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     for (auto meta : midiMessages)
     {
         auto m = meta.getMessage();
-        std::cout << m.getDescription() << std::endl;
-        (m.isNoteOn()) ? std::cout << "ON" << std::endl : std::cout << "OFF" << std::endl;
+        Log::print(m);
     }
 }
 
