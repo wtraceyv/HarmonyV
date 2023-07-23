@@ -1,5 +1,10 @@
-# You can build these yourself if the .jucer is right and you have the dependencies
+# diy
 build/
+.cache/
+
+# soft link to projucer because it ends up in a crazy path
+projucer
+*.sh
 
 # Transitional drawio files (like .swp for vim) I think
 *.bkp

@@ -7,6 +7,8 @@
 */
 
 #include <JuceHeader.h>
+#include <memory>
+
 #include "AudioManager.h"
 #include "GuiManager.h"
 

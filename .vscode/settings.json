@@ -1,0 +1,6 @@
+{
+	"makefile.makeDirectory": "/usr/bin/make",
+	"makefile.makefilePath": "Build/LinuxMakeFile",
+	"makefile.compileCommandsPath": ".",
+	"C_Cpp.errorSquiggles": "disabled"
+}
