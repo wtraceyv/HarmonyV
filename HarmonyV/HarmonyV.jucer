@@ -4,6 +4,9 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="lNiGNf" name="HarmonyV">
     <GROUP id="{9C2891A4-15AF-E114-3177-9682079BA6EF}" name="Source">
+      <FILE id="uLbEEP" name="ZeroCrossing.cpp" compile="1" resource="0"
+            file="Source/detection/ZeroCrossing.cpp"/>
+      <FILE id="p9mZoI" name="ZeroCrossing.h" compile="0" resource="0" file="Source/detection/ZeroCrossing.h"/>
       <FILE id="GOuIK2" name="Log.cpp" compile="1" resource="0" file="Source/Log.cpp"/>
       <FILE id="Fivk3B" name="Log.h" compile="0" resource="0" file="Source/Log.h"/>
       <FILE id="CVG3Tb" name="PluginProcessor.cpp" compile="1" resource="0"

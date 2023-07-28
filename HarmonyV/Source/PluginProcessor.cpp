@@ -36,6 +36,8 @@ void HarmonyVAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+
+    zcDetect = detection::ZeroCrossing(44100);
 }
 
 void HarmonyVAudioProcessor::releaseResources()
@@ -52,19 +54,30 @@ void HarmonyVAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     auto totalNumInputChannels  = getTotalNumInputChannels();
     auto totalNumOutputChannels = getTotalNumOutputChannels();
 
-    // keep your life clean
-    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i)
-        buffer.clear (i, 0, buffer.getNumSamples());
+    // Vars which apply to whole block
+    int numSamples = buffer.getNumSamples();
+    for (auto i = totalNumInputChannels; i < totalNumOutputChannels; ++i) // clean your room
+        buffer.clear (i, 0, numSamples);
 
     // Make sure to reset the state if your inner loop is processing
     // the samples and the outer loop is handling the channels.
     for (int channel = 0; channel < totalNumInputChannels; ++channel)
     {
-        auto* channelData = buffer.getWritePointer (channel);
+        auto* inputRead = buffer.getReadPointer (channel);
+        auto* outputWrite = buffer.getWritePointer (channel);
 
-        // ..do something to the data...
+        float pitch = zcDetect.GetPitch(inputRead, numSamples);
+        Log::cr_print(std::to_string(pitch) + " Hz");
+
+        // process per sample
+        for (auto sample = 0; sample < buffer.getNumSamples(); ++sample)
+        {
+
+        }
+    
     }
 
+    // handle anything midi per block
     for (auto meta : midiMessages)
     {
         auto m = meta.getMessage();
