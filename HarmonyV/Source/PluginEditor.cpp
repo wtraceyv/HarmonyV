@@ -9,6 +9,7 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
+
 //==============================================================================
 HarmonyVAudioProcessorEditor::HarmonyVAudioProcessorEditor (HarmonyVAudioProcessor& p)
     : AudioProcessorEditor (&p), audioProcessor (p)
@@ -25,12 +26,7 @@ HarmonyVAudioProcessorEditor::~HarmonyVAudioProcessorEditor()
 //==============================================================================
 void HarmonyVAudioProcessorEditor::paint (juce::Graphics& g)
 {
-    // (Our component is opaque, so we must completely fill the background with a solid colour)
-    g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-    g.setColour (juce::Colours::white);
-    g.setFont (15.0f);
-    g.drawFittedText ("Yea bb we change something", getLocalBounds(), juce::Justification::centred, 1);
+    addAndMakeVisible(mc);
 }
 
 void HarmonyVAudioProcessorEditor::resized()

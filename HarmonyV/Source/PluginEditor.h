@@ -11,6 +11,8 @@
 #include <JuceHeader.h>
 #include "PluginProcessor.h"
 
+#include "gui/MainComponent.h"
+
 //==============================================================================
 /**
 */
@@ -28,6 +30,8 @@ private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     HarmonyVAudioProcessor& audioProcessor;
+
+    gui::MainComponent mc;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HarmonyVAudioProcessorEditor)
 };
