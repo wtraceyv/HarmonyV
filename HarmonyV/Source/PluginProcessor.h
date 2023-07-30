@@ -1,26 +1,36 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
-
 #pragma once
 
 #include <JuceHeader.h>
-
 #include "detection/ZeroCrossing.h"
 
-//==============================================================================
-/**
-*/
 class HarmonyVAudioProcessor  : public juce::AudioProcessor
                             #if JucePlugin_Enable_ARA
                              , public juce::AudioProcessorARAExtension
                             #endif
 {
+private:
+    //==============================================================================
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HarmonyVAudioProcessor)
+
+    // many algorithms want an FFT at the beginning
+
+    enum settings {
+      fftOrder  = 9,
+      fftSize   = 1 << fftOrder,
+      hopSize   = fftSize / 4
+    } fftSettings;
+    juce::dsp::FFT fft;
+    juce::HeapBlock<juce::dsp::Complex<float>> fftTimeDomain;     // Time domain results of fft.perform
+    juce::HeapBlock<juce::dsp::Complex<float>> fftFreqencyDomain; // Freq domain results
+
+    // detection method
+    detection::ZeroCrossing zcDetect;
+
+    // shifting engine
+  
+
 public:
+
     //==============================================================================
     HarmonyVAudioProcessor();
     ~HarmonyVAudioProcessor() override;
@@ -57,10 +67,4 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-
-private:
-    //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HarmonyVAudioProcessor)
-
-    detection::ZeroCrossing zcDetect;
 };

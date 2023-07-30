@@ -21,8 +21,9 @@ HarmonyVAudioProcessor::HarmonyVAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       )
+                       ),
 #endif
+        fft(fftOrder) // init my FFT with settings in Processor.h
 {
 }
 
@@ -36,6 +37,7 @@ void HarmonyVAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    
 
     zcDetect = detection::ZeroCrossing(44100);
 }
@@ -65,6 +67,8 @@ void HarmonyVAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
     {
         auto* inputRead = buffer.getReadPointer (channel);
         auto* outputWrite = buffer.getWritePointer (channel);
+
+
 
         float pitch = zcDetect.GetPitch(inputRead, numSamples);
         Log::cr_print(std::to_string(pitch) + " Hz");

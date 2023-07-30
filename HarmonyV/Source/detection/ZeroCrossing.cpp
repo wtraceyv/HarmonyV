@@ -1,34 +1,37 @@
 #include "ZeroCrossing.h"
 
-detection::ZeroCrossing::ZeroCrossing()
+namespace detection
 {
-	this->sampleRate = 44100;
-}
-
-detection::ZeroCrossing::ZeroCrossing(int sampleRate)
-{
-	std::cout << "Sample rate was " << this->sampleRate << std::endl;
-	this->sampleRate = sampleRate;
-	std::cout << "Sample rate now " << this->sampleRate << std::endl;
-}
-
-float detection::ZeroCrossing::GetPitch(const float* inputData, int numSamples)
-{
-	int crosses = 0, prevSample = 0;
-	float pitch = 0.0f;
-	float secondsThisBlock = (float)numSamples / (float)this->sampleRate; // "period length"
-
-	// Count zero crosses
-	for (int curSample = 1; curSample < numSamples; curSample++, prevSample++)
+	ZeroCrossing::ZeroCrossing()
 	{
-		// Found a cross (one direction, will skip every other)
-		if (inputData[prevSample] > 0 && inputData[curSample] <= 0)
-		{
-			crosses++;
-		}
+		this->sampleRate = 44100;
 	}
 
-	pitch = crosses / secondsThisBlock;
+	ZeroCrossing::ZeroCrossing(int sampleRate)
+	{
+		std::cout << "Sample rate was " << this->sampleRate << std::endl;
+		this->sampleRate = sampleRate;
+		std::cout << "Sample rate now " << this->sampleRate << std::endl;
+	}
 
-	return pitch;
+	float ZeroCrossing::GetPitch(const float* inputData, int numSamples)
+	{
+		int crosses = 0, prevSample = 0;
+		float pitch = 0.0f;
+		float secondsThisBlock = (float)numSamples / (float)this->sampleRate; // "period length"
+
+		// Count zero crosses
+		for (int curSample = 1; curSample < numSamples; curSample++, prevSample++)
+		{
+			// Found a cross (one direction, will skip every other)
+			if (inputData[prevSample] > 0 && inputData[curSample] <= 0)
+			{
+				crosses++;
+			}
+		}
+
+		pitch = crosses / secondsThisBlock;
+
+		return pitch;
+	}
 }

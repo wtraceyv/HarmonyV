@@ -4,6 +4,8 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="lNiGNf" name="HarmonyV">
     <GROUP id="{9C2891A4-15AF-E114-3177-9682079BA6EF}" name="Source">
+      <FILE id="b6NLCZ" name="Window.cpp" compile="1" resource="0" file="Source/util/Window.cpp"/>
+      <FILE id="wEWjs6" name="Window.h" compile="0" resource="0" file="Source/util/Window.h"/>
       <FILE id="uLbEEP" name="ZeroCrossing.cpp" compile="1" resource="0"
             file="Source/detection/ZeroCrossing.cpp"/>
       <FILE id="p9mZoI" name="ZeroCrossing.h" compile="0" resource="0" file="Source/detection/ZeroCrossing.h"/>
@@ -38,6 +40,7 @@
         <MODULEPATH id="juce_graphics" path="../dependencies/JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../dependencies/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../dependencies/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../dependencies/JUCE/modules"/>
       </MODULEPATHS>
     </LINUX_MAKE>
     <XCODE_MAC targetFolder="Builds/MacOSX">
@@ -58,6 +61,7 @@
         <MODULEPATH id="juce_graphics" path="../dependencies/JUCE/modules"/>
         <MODULEPATH id="juce_gui_basics" path="../dependencies/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../dependencies/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../dependencies/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
@@ -71,6 +75,7 @@
     <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
