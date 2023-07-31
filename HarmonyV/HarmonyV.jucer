@@ -4,6 +4,10 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="lNiGNf" name="HarmonyV">
     <GROUP id="{9C2891A4-15AF-E114-3177-9682079BA6EF}" name="Source">
+      <FILE id="Dd0VkO" name="OutputChannelControls.cpp" compile="1" resource="0"
+            file="Source/gui/OutputChannelControls.cpp"/>
+      <FILE id="Y301p9" name="OutputChannelControls.h" compile="0" resource="0"
+            file="Source/gui/OutputChannelControls.h"/>
       <FILE id="jQ29Sl" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/gui/MainComponent.cpp"/>
       <FILE id="ir9VYC" name="MainComponent.h" compile="0" resource="0" file="Source/gui/MainComponent.h"/>

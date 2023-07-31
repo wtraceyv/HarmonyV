@@ -16,11 +16,9 @@ namespace gui
 		debugsLog.setButtonText("Debugs");
 		addAndMakeVisible(debugsLog);
 
-		outputChannelControls.setColour(juce::TextButton::buttonColourId, juce::Colours::yellow);
-		outputChannelControls.setButtonText("OutputChannelControls");
-		addAndMakeVisible(outputChannelControls);
+		addAndMakeVisible(controls);
 
-		setSize(600, 420);
+		setSize(800, 800);
 	}
 
 	// https://docs.juce.com/master/tutorial_rectangle_advanced.html
@@ -33,16 +31,10 @@ namespace gui
 		header.setBounds(area.removeFromTop(contentHeight));
 		alwaysLog.setBounds(area.removeFromTop(contentHeight));
 		debugsLog.setBounds(area.removeFromTop(contentHeight));
-		outputChannelControls.setBounds(area.removeFromTop(contentHeight));
+		controls.setBounds(area.removeFromTop(contentHeight));
 	}
 
 	void MainComponent::paint (juce::Graphics& g)
 	{
-		// (Our component is opaque, so we must completely fill the background with a solid colour)
-		// g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-
-		// g.setColour (juce::Colours::white);
-		// g.setFont (15.0f);
-		// g.drawFittedText ("Yea bb we change something", getLocalBounds(), juce::Justification::centred, 1);
 	}
 }

@@ -70,8 +70,8 @@ void HarmonyVAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
 
 
 
-        float pitch = zcDetect.GetPitch(inputRead, numSamples);
-        Log::cr_print(std::to_string(pitch) + " Hz");
+        // float pitch = zcDetect.GetPitch(inputRead, numSamples);
+        // Log::cr_print(std::to_string(pitch) + " Hz");
 
         // process per sample
         for (auto sample = 0; sample < buffer.getNumSamples(); ++sample)

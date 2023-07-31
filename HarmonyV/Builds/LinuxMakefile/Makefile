@@ -108,6 +108,7 @@ OBJECTS_STANDALONE_PLUGIN := \
   $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o \
 
 OBJECTS_SHARED_CODE := \
+  $(JUCE_OBJDIR)/OutputChannelControls_f8366325.o \
   $(JUCE_OBJDIR)/MainComponent_b96ccad1.o \
   $(JUCE_OBJDIR)/CBuffer_1da95ebf.o \
   $(JUCE_OBJDIR)/Window_110a4ebe.o \
@@ -178,6 +179,11 @@ $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o: ../../Juc
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling include_juce_audio_plugin_client_Standalone.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_STANDALONE_PLUGIN) $(JUCE_CFLAGS_STANDALONE_PLUGIN) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/OutputChannelControls_f8366325.o: ../../Source/gui/OutputChannelControls.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling OutputChannelControls.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/MainComponent_b96ccad1.o: ../../Source/gui/MainComponent.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)

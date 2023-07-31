@@ -1,5 +1,8 @@
 #include <JuceHeader.h>
 
+// sub components
+#include "OutputChannelControls.h"
+
 namespace gui
 {
 	/**
@@ -13,7 +16,7 @@ namespace gui
 			juce::TextButton header;
 			juce::TextButton alwaysLog;
 			juce::TextButton debugsLog;
-			juce::TextButton outputChannelControls;
+			gui::OutputChannelControls controls;
 		public:
 			MainComponent();
 			void paint (juce::Graphics&) override;
