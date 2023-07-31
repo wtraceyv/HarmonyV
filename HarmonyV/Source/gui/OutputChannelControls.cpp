@@ -3,12 +3,9 @@
 namespace gui
 {
 	// Gross helper to generate sliders on the fly for right now
-	std::shared_ptr<juce::Slider> freshSlider()
+	std::shared_ptr<VolPanPair> genChannelControl()
 	{
-		return std::make_shared<juce::Slider>(
-			juce::Slider::RotaryVerticalDrag,
-			juce::Slider::TextBoxBelow
-		);
+		return std::make_shared<VolPanPair>();
 	}
 
 	OutputChannelControls::OutputChannelControls()
@@ -21,11 +18,11 @@ namespace gui
 		container.justifyContent = juce::FlexBox::JustifyContent::center;
 
 		// dynamically adding a bunch of sliders
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 4; i++)
 		{
-			std::shared_ptr<juce::Slider> newSlider = freshSlider();
-			this->sliders.push_back(newSlider);
-			addAndMakeVisible(*newSlider); // my understanding is the FlexBox resizes this later if I add it to the .items Array
+			auto newChannel = genChannelControl();
+			this->singleChannelControls.push_back(newChannel);
+			addAndMakeVisible(*newChannel); // my understanding is the FlexBox resizes this later if I add it to the .items Array
 		}
 
 		auto bounds = getLocalBounds();
@@ -36,9 +33,9 @@ namespace gui
 	// that is how it does its flex stuff on the fly.
 	void OutputChannelControls::resized()
 	{
-		for (auto sliderRef : sliders)
+		for (auto channelRef : singleChannelControls)
 		{
-			container.items.add(juce::FlexItem(140, 140, *sliderRef));
+			container.items.add(juce::FlexItem(200, 300, *channelRef));
 		}
 
 		auto bounds = getLocalBounds();	

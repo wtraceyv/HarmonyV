@@ -18,7 +18,7 @@ namespace gui
 
 		addAndMakeVisible(controls);
 
-		setSize(800, 800);
+		setSize(1200, 1200);
 	}
 
 	// https://docs.juce.com/master/tutorial_rectangle_advanced.html
@@ -28,10 +28,10 @@ namespace gui
 
 		auto contentHeight = area.getHeight() / 4;
 
-		header.setBounds(area.removeFromTop(contentHeight));
-		alwaysLog.setBounds(area.removeFromTop(contentHeight));
-		debugsLog.setBounds(area.removeFromTop(contentHeight));
-		controls.setBounds(area.removeFromTop(contentHeight));
+		header.setBounds(area.removeFromTop(contentHeight / 3));
+		alwaysLog.setBounds(area.removeFromTop(contentHeight / 3));
+		debugsLog.setBounds(area.removeFromTop(contentHeight / 3));
+		controls.setBounds(area.removeFromTop(contentHeight + 40));
 	}
 
 	void MainComponent::paint (juce::Graphics& g)
