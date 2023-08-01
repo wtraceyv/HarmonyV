@@ -1,7 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "detection/ZeroCrossing.h"
+#include "processing/detection/ZeroCrossing.h"
 
 class HarmonyVAudioProcessor  : public juce::AudioProcessor
                             #if JucePlugin_Enable_ARA

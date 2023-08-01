@@ -27,6 +27,11 @@ namespace util
 			this->writer = 0;
 	}
 
+	void CBuffer::pushWrite(int samples)
+	{
+		this->writer = (this->writer + samples) % this->size;
+	}
+
 	float CBuffer::read(int channel)
 	{
 		return buffer.getSample(channel, this->reader);

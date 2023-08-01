@@ -108,12 +108,15 @@ OBJECTS_STANDALONE_PLUGIN := \
   $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o \
 
 OBJECTS_SHARED_CODE := \
+  $(JUCE_OBJDIR)/ZeroCrossing_bb2fd5d1.o \
+  $(JUCE_OBJDIR)/FreqDomain_2d2b9c43.o \
+  $(JUCE_OBJDIR)/MainProcessor_f88e24a6.o \
+  $(JUCE_OBJDIR)/Functions_48260a17.o \
   $(JUCE_OBJDIR)/VolPanPair_deeec9a1.o \
   $(JUCE_OBJDIR)/OutputChannelControls_f8366325.o \
   $(JUCE_OBJDIR)/MainComponent_b96ccad1.o \
   $(JUCE_OBJDIR)/CBuffer_1da95ebf.o \
   $(JUCE_OBJDIR)/Window_110a4ebe.o \
-  $(JUCE_OBJDIR)/ZeroCrossing_41215f3d.o \
   $(JUCE_OBJDIR)/Log_298267a5.o \
   $(JUCE_OBJDIR)/PluginProcessor_a059e380.o \
   $(JUCE_OBJDIR)/PluginEditor_94d4fb09.o \
@@ -181,6 +184,26 @@ $(JUCE_OBJDIR)/include_juce_audio_plugin_client_Standalone_1a871192.o: ../../Juc
 	@echo "Compiling include_juce_audio_plugin_client_Standalone.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_STANDALONE_PLUGIN) $(JUCE_CFLAGS_STANDALONE_PLUGIN) -o "$@" -c "$<"
 
+$(JUCE_OBJDIR)/ZeroCrossing_bb2fd5d1.o: ../../Source/processing/detection/ZeroCrossing.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling ZeroCrossing.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/FreqDomain_2d2b9c43.o: ../../Source/processing/detection/FreqDomain.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling FreqDomain.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/MainProcessor_f88e24a6.o: ../../Source/processing/MainProcessor.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling MainProcessor.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
+$(JUCE_OBJDIR)/Functions_48260a17.o: ../../Source/util/Functions.cpp
+	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
+	@echo "Compiling Functions.cpp"
+	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
+
 $(JUCE_OBJDIR)/VolPanPair_deeec9a1.o: ../../Source/gui/VolPanPair.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling VolPanPair.cpp"
@@ -204,11 +227,6 @@ $(JUCE_OBJDIR)/CBuffer_1da95ebf.o: ../../Source/util/CBuffer.cpp
 $(JUCE_OBJDIR)/Window_110a4ebe.o: ../../Source/util/Window.cpp
 	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
 	@echo "Compiling Window.cpp"
-	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
-
-$(JUCE_OBJDIR)/ZeroCrossing_41215f3d.o: ../../Source/detection/ZeroCrossing.cpp
-	-$(V_AT)mkdir -p $(JUCE_OBJDIR)
-	@echo "Compiling ZeroCrossing.cpp"
 	$(V_AT)$(CXX) $(JUCE_CXXFLAGS) $(JUCE_CPPFLAGS_SHARED_CODE) $(JUCE_CFLAGS_SHARED_CODE) -o "$@" -c "$<"
 
 $(JUCE_OBJDIR)/Log_298267a5.o: ../../Source/Log.cpp

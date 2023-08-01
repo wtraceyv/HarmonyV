@@ -4,6 +4,16 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="lNiGNf" name="HarmonyV">
     <GROUP id="{9C2891A4-15AF-E114-3177-9682079BA6EF}" name="Source">
+      <FILE id="w9f7OW" name="ZeroCrossing.cpp" compile="1" resource="0"
+            file="Source/processing/detection/ZeroCrossing.cpp"/>
+      <FILE id="aCvwKP" name="ZeroCrossing.h" compile="0" resource="0" file="Source/processing/detection/ZeroCrossing.h"/>
+      <FILE id="ZvS8gL" name="FreqDomain.cpp" compile="1" resource="0" file="Source/processing/detection/FreqDomain.cpp"/>
+      <FILE id="EeAifX" name="FreqDomain.h" compile="0" resource="0" file="Source/processing/detection/FreqDomain.h"/>
+      <FILE id="M2YTyJ" name="MainProcessor.cpp" compile="1" resource="0"
+            file="Source/processing/MainProcessor.cpp"/>
+      <FILE id="LH5Hut" name="MainProcessor.h" compile="0" resource="0" file="Source/processing/MainProcessor.h"/>
+      <FILE id="K4z5Eo" name="Functions.cpp" compile="1" resource="0" file="Source/util/Functions.cpp"/>
+      <FILE id="zZrvCO" name="Functions.h" compile="0" resource="0" file="Source/util/Functions.h"/>
       <FILE id="XV75IR" name="VolPanPair.cpp" compile="1" resource="0" file="Source/gui/VolPanPair.cpp"/>
       <FILE id="L9dchf" name="VolPanPair.h" compile="0" resource="0" file="Source/gui/VolPanPair.h"/>
       <FILE id="Dd0VkO" name="OutputChannelControls.cpp" compile="1" resource="0"
@@ -17,9 +27,6 @@
       <FILE id="rrcx9J" name="CBuffer.h" compile="0" resource="0" file="Source/util/CBuffer.h"/>
       <FILE id="b6NLCZ" name="Window.cpp" compile="1" resource="0" file="Source/util/Window.cpp"/>
       <FILE id="wEWjs6" name="Window.h" compile="0" resource="0" file="Source/util/Window.h"/>
-      <FILE id="uLbEEP" name="ZeroCrossing.cpp" compile="1" resource="0"
-            file="Source/detection/ZeroCrossing.cpp"/>
-      <FILE id="p9mZoI" name="ZeroCrossing.h" compile="0" resource="0" file="Source/detection/ZeroCrossing.h"/>
       <FILE id="GOuIK2" name="Log.cpp" compile="1" resource="0" file="Source/Log.cpp"/>
       <FILE id="Fivk3B" name="Log.h" compile="0" resource="0" file="Source/Log.h"/>
       <FILE id="CVG3Tb" name="PluginProcessor.cpp" compile="1" resource="0"

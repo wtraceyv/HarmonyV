@@ -24,6 +24,8 @@ namespace util
 			void pushRead();			
 			// Push write pointer forward one sample, wrap around if reaches "end"
 			void pushWrite();
+			// For hops, you may push the write pointer by a chunk of samples.
+			void pushWrite(int samples);
 			// Read the read pointer's current sample
 			float read(int channel);
 			// Write to the write pointer's current sample
