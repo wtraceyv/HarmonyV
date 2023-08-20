@@ -28,6 +28,7 @@
 		08E6BFA91AA44820E3945B12 /* include_juce_audio_processors_ara.cpp */ = {isa = PBXBuildFile; fileRef = 53C5EC6FC257AB42C084FCFE; };
 		08F3A341AB3FD6D502F013D5 /* PluginEditor.cpp */ = {isa = PBXBuildFile; fileRef = 2ACA775CF9688B5B0E9BA0FE; };
 		09B46A4F3EF1E3670FE02794 /* include_juce_graphics.mm */ = {isa = PBXBuildFile; fileRef = E198AF9E3F9AF1348858272C; };
+		0B2E6855D70463F53C5C9B06 /* FreqDomain.cpp */ = {isa = PBXBuildFile; fileRef = A88098E97B19D71BDFAFF5BB; };
 		176E7ACD5221FC321878860E /* Accelerate.framework */ = {isa = PBXBuildFile; fileRef = 0129233DA8EB46D32A19C775; };
 		1E14C7AFBCF8493540C7EEA1 /* VST3 */ = {isa = PBXBuildFile; fileRef = 188431DA181702DB73706EA7; };
 		200E2F2944F9EDB7EEF3302E /* CoreAudio.framework */ = {isa = PBXBuildFile; fileRef = 7965E290884574FC784ABBA7; };
@@ -46,7 +47,6 @@
 		51EF23150A2D6B90202695CE /* include_juce_audio_processors.mm */ = {isa = PBXBuildFile; fileRef = 3D58E7F5FED16E737A5A70A1; };
 		54478AEE88775453D2875E37 /* Log.cpp */ = {isa = PBXBuildFile; fileRef = 0619A4F14688E0AB55AC7BC4; };
 		55E80F1F3D74C34D0D75075C /* ZeroCrossing.cpp */ = {isa = PBXBuildFile; fileRef = 679A3680F40564130E337282; };
-		5B8D365A7A03AE617C85FD4B /* FreqDomain.cpp */ = {isa = PBXBuildFile; fileRef = 7894C811A140A9B70ACF269A; };
 		620F18670DE042DD699A023C /* CBuffer.cpp */ = {isa = PBXBuildFile; fileRef = 7735A920482B34A452B831F4; };
 		6995BE84814F7B2AB1E8A980 /* CoreMIDI.framework */ = {isa = PBXBuildFile; fileRef = 7759E7864EE27419D51D1812; };
 		717DAB028791080CF19D354B /* Standalone Plugin */ = {isa = PBXBuildFile; fileRef = A1EF44DF4908BD73C308FB0F; };
@@ -77,6 +77,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		00F22CBD6DCB542308F1ED58 /* FreqDomain.h */ /* FreqDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FreqDomain.h; path = ../../Source/processing/FreqDomain.h; sourceTree = SOURCE_ROOT; };
 		010D97BA4C3EEFD104F61B20 /* CoreAudioKit.framework */ /* CoreAudioKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudioKit.framework; path = System/Library/Frameworks/CoreAudioKit.framework; sourceTree = SDKROOT; };
 		0129233DA8EB46D32A19C775 /* Accelerate.framework */ /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		0157A3FDF366B803049ACFDE /* Info-Standalone_Plugin.plist */ /* Info-Standalone_Plugin.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Info-Standalone_Plugin.plist"; path = "Info-Standalone_Plugin.plist"; sourceTree = SOURCE_ROOT; };
@@ -114,7 +115,6 @@
 		716CEC771AA7F132D44CA4A5 /* include_juce_audio_utils.mm */ /* include_juce_audio_utils.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_utils.mm; path = ../../JuceLibraryCode/include_juce_audio_utils.mm; sourceTree = SOURCE_ROOT; };
 		7735A920482B34A452B831F4 /* CBuffer.cpp */ /* CBuffer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = CBuffer.cpp; path = ../../Source/util/CBuffer.cpp; sourceTree = SOURCE_ROOT; };
 		7759E7864EE27419D51D1812 /* CoreMIDI.framework */ /* CoreMIDI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMIDI.framework; path = System/Library/Frameworks/CoreMIDI.framework; sourceTree = SDKROOT; };
-		7894C811A140A9B70ACF269A /* FreqDomain.cpp */ /* FreqDomain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FreqDomain.cpp; path = ../../Source/processing/detection/FreqDomain.cpp; sourceTree = SOURCE_ROOT; };
 		79308303EB4F65BC62927B9C /* include_juce_audio_plugin_client_utils.cpp */ /* include_juce_audio_plugin_client_utils.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = include_juce_audio_plugin_client_utils.cpp; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_utils.cpp; sourceTree = SOURCE_ROOT; };
 		7965E290884574FC784ABBA7 /* CoreAudio.framework */ /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		808C5D16F2FA63DAEDFB0F27 /* MainComponent.h */ /* MainComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainComponent.h; path = ../../Source/gui/MainComponent.h; sourceTree = SOURCE_ROOT; };
@@ -129,13 +129,13 @@
 		A3869F478144610975DD15D1 /* include_juce_audio_plugin_client_AU_2.mm */ /* include_juce_audio_plugin_client_AU_2.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_plugin_client_AU_2.mm; path = ../../JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm; sourceTree = SOURCE_ROOT; };
 		A5555B0818127FEB30C2D29F /* VolPanPair.cpp */ /* VolPanPair.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = VolPanPair.cpp; path = ../../Source/gui/VolPanPair.cpp; sourceTree = SOURCE_ROOT; };
 		A7F3EC3315617244BB3EC33B /* Shared Code */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHarmonyV.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A88098E97B19D71BDFAFF5BB /* FreqDomain.cpp */ /* FreqDomain.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = FreqDomain.cpp; path = ../../Source/processing/FreqDomain.cpp; sourceTree = SOURCE_ROOT; };
 		A9F6D1948974D7540709BF6C /* PluginEditor.h */ /* PluginEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PluginEditor.h; path = ../../Source/PluginEditor.h; sourceTree = SOURCE_ROOT; };
 		AE35FE70791889ABAA105379 /* juce_audio_plugin_client */ /* juce_audio_plugin_client */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_audio_plugin_client; path = "~/JUCE/modules/juce_audio_plugin_client"; sourceTree = "<absolute>"; };
 		AFB348C40A4994F418856B9A /* include_juce_data_structures.mm */ /* include_juce_data_structures.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_data_structures.mm; path = ../../JuceLibraryCode/include_juce_data_structures.mm; sourceTree = SOURCE_ROOT; };
 		B16CEDF70AED3D6E803A9690 /* QuartzCore.framework */ /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B1BAB21EA9668865E79E57EA /* juce_gui_basics */ /* juce_gui_basics */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_gui_basics; path = "~/JUCE/modules/juce_gui_basics"; sourceTree = "<absolute>"; };
 		B1CD2EC66C379C4CE8D413A9 /* juce_data_structures */ /* juce_data_structures */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_data_structures; path = "~/JUCE/modules/juce_data_structures"; sourceTree = "<absolute>"; };
-		B7958E7E14C039B93A917201 /* FreqDomain.h */ /* FreqDomain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FreqDomain.h; path = ../../Source/processing/detection/FreqDomain.h; sourceTree = SOURCE_ROOT; };
 		BF66B5A957ADBAF79143A0C7 /* juce_core */ /* juce_core */ = {isa = PBXFileReference; lastKnownFileType = folder; name = juce_core; path = "~/JUCE/modules/juce_core"; sourceTree = "<absolute>"; };
 		C10C182FB8C25759A8AFD32D /* MainProcessor.h */ /* MainProcessor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MainProcessor.h; path = ../../Source/processing/MainProcessor.h; sourceTree = SOURCE_ROOT; };
 		C2EDEE8F1F70026BDDC0C37B /* include_juce_audio_devices.mm */ /* include_juce_audio_devices.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; name = include_juce_audio_devices.mm; path = ../../JuceLibraryCode/include_juce_audio_devices.mm; sourceTree = SOURCE_ROOT; };
@@ -333,10 +333,10 @@
 		FEA9B4707DDBCC13934598B7 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				A88098E97B19D71BDFAFF5BB,
+				00F22CBD6DCB542308F1ED58,
 				679A3680F40564130E337282,
 				9251723C9EE43D362E143ACA,
-				7894C811A140A9B70ACF269A,
-				B7958E7E14C039B93A917201,
 				E3F8DECB0EC8BCDC6C347681,
 				C10C182FB8C25759A8AFD32D,
 				6070B263BC332AD43A3CFD68,
@@ -623,8 +623,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B2E6855D70463F53C5C9B06,
 				55E80F1F3D74C34D0D75075C,
-				5B8D365A7A03AE617C85FD4B,
 				43F701D70608ED1360BB28FC,
 				834686409669EC17A5B0B806,
 				7B49E5BED3A689E5A5D32E8D,

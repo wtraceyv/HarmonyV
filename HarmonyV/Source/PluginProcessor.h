@@ -12,20 +12,6 @@ private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HarmonyVAudioProcessor)
 
-    // many algorithms want an FFT at the beginning
-
-    enum settings {
-      fftOrder  = 9,
-      fftSize   = 1 << fftOrder,
-      hopSize   = fftSize / 4
-    } fftSettings;
-    juce::dsp::FFT fft;
-    juce::HeapBlock<juce::dsp::Complex<float>> fftTimeDomain;     // Time domain results of fft.perform
-    juce::HeapBlock<juce::dsp::Complex<float>> fftFreqencyDomain; // Freq domain results
-
-    // detection method
-    detection::ZeroCrossing zcDetect;
-
     // shifting engine
   
 

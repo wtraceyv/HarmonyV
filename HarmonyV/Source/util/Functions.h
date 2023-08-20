@@ -1,4 +1,4 @@
 namespace util
 {
-	static float wrapPhase(const float phase);
+	float wrapPhase(float phase);
 }

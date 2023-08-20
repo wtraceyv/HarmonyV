@@ -1,5 +1,6 @@
 #include <JuceHeader.h>
 #include "../util/CBuffer.h"
+#include "FreqDomain.h"
 
 using namespace util;
 
@@ -12,11 +13,17 @@ namespace processing
 			CBuffer inputBuffer;
 			// summed output ready for system
 			CBuffer outputBuffer;
-			// Phase info from frequency domain stuff is useful
-			juce::AudioBuffer<float> savedInputPhases;
+			// Main frequency domain analysis
+			FreqDomain freqDomain;
 		public:
 			MainProcessor();
 			MainProcessor(int bufferSize);
+			MainProcessor(
+				int bufferSize, 
+				int sampleRate, 
+				int fftOrder, 
+				int hopSizeDivisor
+			);
 			// Plugin is monophonic; only need to take float* as input.
 			CBuffer process(const float* inputData, int numSamples);
 	};

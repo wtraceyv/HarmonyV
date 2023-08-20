@@ -1,27 +1,46 @@
 #include "MainProcessor.h"
+#include "../util/Functions.h"
+
+using namespace util;
 
 namespace processing
 {
-	MainProcessor::MainProcessor() :
-		inputBuffer(1, 1024),
-		outputBuffer(2, 1024)
-	{}
+	/* constructors */
+
+	MainProcessor::MainProcessor(){}
 
 	MainProcessor::MainProcessor(int bufferSize) :
 		inputBuffer(1, bufferSize),
 		outputBuffer(2, bufferSize)
 	{}
 
+	MainProcessor::MainProcessor(
+		int bufferSize, 
+		int sampleRate, 
+		int fftOrder, 
+		int hopSizeDivisor
+	) : 
+		inputBuffer(1, bufferSize),
+		outputBuffer(2, bufferSize),
+		freqDomain(
+			bufferSize, 
+			sampleRate, 
+			fftOrder, 
+			hopSizeDivisor
+		)
+	{}
+
+	/* forward declare */
+
 	CBuffer MainProcessor::process(const float* inputData, int numSamples)
 	{
-		// TODO: do some dang ol processing
+		// If we are using frequency domain info elsewhere
 
 		// TODO: detection 
 
 		// TODO: shifting
 
-		// TODO: make sure that somehow the phases from FFT stuff are saved and accessible as soon as they are calulated
-
 		return this->outputBuffer;
 	}
+
 }

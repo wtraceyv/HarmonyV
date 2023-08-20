@@ -21,9 +21,8 @@ HarmonyVAudioProcessor::HarmonyVAudioProcessor()
                       #endif
                        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
                      #endif
-                       ),
+                       )
 #endif
-        fft(fftOrder) // init my FFT with settings in Processor.h
 {
 }
 
@@ -38,8 +37,6 @@ void HarmonyVAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlo
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
     
-
-    zcDetect = detection::ZeroCrossing(44100);
 }
 
 void HarmonyVAudioProcessor::releaseResources()

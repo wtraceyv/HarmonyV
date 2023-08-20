@@ -4,11 +4,11 @@
               addUsingNamespaceToJuceHeader="0" displaySplashScreen="1" jucerFormatVersion="1">
   <MAINGROUP id="lNiGNf" name="HarmonyV">
     <GROUP id="{9C2891A4-15AF-E114-3177-9682079BA6EF}" name="Source">
+      <FILE id="qGzaUr" name="FreqDomain.cpp" compile="1" resource="0" file="Source/processing/FreqDomain.cpp"/>
+      <FILE id="ejPH5w" name="FreqDomain.h" compile="0" resource="0" file="Source/processing/FreqDomain.h"/>
       <FILE id="w9f7OW" name="ZeroCrossing.cpp" compile="1" resource="0"
             file="Source/processing/detection/ZeroCrossing.cpp"/>
       <FILE id="aCvwKP" name="ZeroCrossing.h" compile="0" resource="0" file="Source/processing/detection/ZeroCrossing.h"/>
-      <FILE id="ZvS8gL" name="FreqDomain.cpp" compile="1" resource="0" file="Source/processing/detection/FreqDomain.cpp"/>
-      <FILE id="EeAifX" name="FreqDomain.h" compile="0" resource="0" file="Source/processing/detection/FreqDomain.h"/>
       <FILE id="M2YTyJ" name="MainProcessor.cpp" compile="1" resource="0"
             file="Source/processing/MainProcessor.cpp"/>
       <FILE id="LH5Hut" name="MainProcessor.h" compile="0" resource="0" file="Source/processing/MainProcessor.h"/>
