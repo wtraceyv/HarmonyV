@@ -1,9 +1,13 @@
 #include "FreqDomain.h"
 #include "../util/Functions.h"
 
+using namespace util;
+
 FreqDomain::FreqDomain() : 
 	fft(9),
+	window(1 << 9),
 	savedInputPhases(1, 1024),
+	fftTimeDomain(1 << 9),
 	fftFrequencyDomain(1 << 9),
 	fftAnalysisFrequencies(1 << 9),
 	fftAnalysisMagnitudes(1 << 9)
@@ -21,7 +25,9 @@ FreqDomain::FreqDomain(
 	int hopSizeDivisor
 ) :
 	fft(fftOrder),
+	window(1 << fftOrder),
 	savedInputPhases(1, bufferSize),
+	fftTimeDomain(1 << fftOrder),
 	fftFrequencyDomain(1 << fftOrder),
 	fftAnalysisFrequencies(1 << fftOrder),
 	fftAnalysisMagnitudes(1 << fftOrder)
@@ -32,9 +38,30 @@ FreqDomain::FreqDomain(
 	this->hopSize = this->fftSize / hopSizeDivisor;
 }
 
+void FreqDomain::processSample(CBuffer &input)
+{
+	// It has been a hop, time to do fft
+	if (++this->hopCount >= this->hopCount) {
+		// fill time domain with window-weighted input samples
+		for (int i = 0; i < this->fftSize; i++)
+		{
+			this->fftTimeDomain[i].real(sqrtf(this->window.GetWeight(i)) * input.read(0));
+			this->fftTimeDomain[i].imag(0.0f);
+
+			input.pushRead();
+		}
+
+		// use time domain windowed samples to do fft calculations
+		fftAnalysisProcess();
+
+		this->hopCount = 0;
+	}
+}
 
 void FreqDomain::fftAnalysisProcess()
 {
+	this->fft.perform(this->fftTimeDomain, this->fftFrequencyDomain, false);
+
 	for (int bin = 0; bin <= this->fftSize / 2; ++bin)
 	{
 		float amplitude = abs (this->fftFrequencyDomain[bin]);

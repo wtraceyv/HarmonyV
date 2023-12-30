@@ -1,28 +1,22 @@
-/*
-  ==============================================================================
-
-    This file contains the basic framework code for a JUCE plugin processor.
-
-  ==============================================================================
-*/
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 
 #include "Log.h"
 
+// TODO: should be set in the plugin where applicable
+#define BUFFER_SIZE 1024 * 2
+#define FFT_ORDER   9
+#define HOP_DIVISOR 4
+
 //==============================================================================
-HarmonyVAudioProcessor::HarmonyVAudioProcessor()
-#ifndef JucePlugin_PreferredChannelConfigurations
-     : AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  juce::AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
-                     #endif
-                       )
-#endif
+HarmonyVAudioProcessor::HarmonyVAudioProcessor() :  
+    AudioProcessor (
+        BusesProperties()
+        .withInput ("Input", juce::AudioChannelSet::mono(), true)
+        .withOutput ("Output", juce::AudioChannelSet::stereo(), true)
+    ),
+    mainProcessor(1024)
 {
 }
 
@@ -34,9 +28,7 @@ HarmonyVAudioProcessor::~HarmonyVAudioProcessor()
 
 void HarmonyVAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    // Use this method as the place to do any pre-playback
-    // initialisation that you need..
-    
+
 }
 
 void HarmonyVAudioProcessor::releaseResources()
@@ -65,16 +57,13 @@ void HarmonyVAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juc
         auto* inputRead = buffer.getReadPointer (channel);
         auto* outputWrite = buffer.getWritePointer (channel);
 
-
-
-        // float pitch = zcDetect.GetPitch(inputRead, numSamples);
-        // Log::cr_print(std::to_string(pitch) + " Hz");
+				// TODO: start using MainProcessor
 
         // process per sample
-        for (auto sample = 0; sample < buffer.getNumSamples(); ++sample)
-        {
+        // for (auto sample = 0; sample < buffer.getNumSamples(); ++sample)
+        // {
 
-        }
+        // }
     
     }
 

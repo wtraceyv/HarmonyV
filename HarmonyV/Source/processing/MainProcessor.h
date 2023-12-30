@@ -13,6 +13,7 @@ namespace processing
 			CBuffer inputBuffer;
 			// summed output ready for system
 			CBuffer outputBuffer;
+
 			// Main frequency domain analysis
 			FreqDomain freqDomain;
 		public:

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "processing/detection/ZeroCrossing.h"
+#include "processing/MainProcessor.h"
 
 class HarmonyVAudioProcessor  : public juce::AudioProcessor
                             #if JucePlugin_Enable_ARA
@@ -11,6 +11,8 @@ class HarmonyVAudioProcessor  : public juce::AudioProcessor
 private:
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HarmonyVAudioProcessor)
+    
+    processing::MainProcessor mainProcessor;
 
     // shifting engine
   
